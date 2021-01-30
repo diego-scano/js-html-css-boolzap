@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title></title>
+  </head>
+  <body>
+
+    <div id="root">
+      <div class="container">
+        
+        <div class="sidebar fl">
+          <div class="user-menu">
+            <img src="img/avatar_io.jpg" alt="">
+            <span>Nome Utente</span>
+            <div class="user-menu-icons">
+              <i class="fa fa-circle-o-notch" aria-hidden="true"></i>
+              <i class="fa fa-comment" aria-hidden="true"></i>
+              <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+            </div>
+            <div class="notifications-row">
+              <div id="notification-icon">
+                <i class="fa fa-bell-slash" aria-hidden="true"></i>
+              </div>
+              <div id="notification-text">
+                <span>Ricevi notifiche di nuovi messaggi</span><br>
+                <span>Attiva notifiche desktop</span>
+              </div>
+            </div>
+            <div id="contacts-box">
+              <div id="input">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input placeholder="Cerca o inizia una nuova chat">
+              </div>
+              <div id="single-contact-container" v-for="item in contacts">
+                <img :src="item.avatar" alt="">{{item.name}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="main fl">
+          <div id="top-chat-menu">
+            <img :src="contacts[0].avatar" alt="">
+            <div id="top-chat-menu-text">
+              <span>{{contacts[0].name}}</span><br>
+              <span>Ultimo accesso oggi alle</span>
+            </div>
+            <div class="user-menu-icons">
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <i class="fa fa-paperclip" aria-hidden="true"></i>
+              <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div id="chat-box">
+            <div class="cloud-message me">Esempio 1 "io"</div>
+            <div class="cloud-message you">Esempio 2 "tu"</div>
+          </div>
+        </div>
+
+        <div class="bottom fl">
+          <i class="fa fa-smile-o" aria-hidden="true"></i>
+          <input placeholder="Scrivi un messaggio">
+          <i class="fa fa-microphone" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js" charset="utf-8"></script>
+  </body>
+</html>
