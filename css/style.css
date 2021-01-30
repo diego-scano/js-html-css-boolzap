@@ -10,6 +10,7 @@
 
 #root {
   background-image: linear-gradient(to bottom, #009688 0px, #009688 15vh, #dddbd1 15vh, #d2dbdc 100%);
+  font-family: 'Lato', sans-serif;
 }
 
 .container {
@@ -67,6 +68,8 @@ i {
 
 .notifications-row {
   background-color: #8edafc;
+  display: flex;
+  align-items: center;
 }
 
 #notification-icon {
@@ -77,12 +80,13 @@ i {
 }
 
 #notification-icon i {
-  padding: 15px;
+  padding: 10px;
   color: #8edafc;
 }
 
 #notification-text {
   display: inline-block;
+  font-size: 0.95em;
 }
 
 #notification-text span:last-child {
@@ -156,6 +160,15 @@ i {
   padding: 30px;
   border-radius: 10px;
   margin-bottom: 10px;
+  position: relative;
+}
+
+.time {
+  font-size: 0.7em;
+  color: grey;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
 }
 
 .me {
@@ -174,12 +187,14 @@ i {
   background-color: white;
   min-height: 80px;
   width: 65%;
-  padding: 20px 10px;
+  padding: 0 10px;
   position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .bottom input {
   padding: 10px;
-  width: calc(100% - 62px);
-  margin: 0 10px;
+  width: 90%;
 }
