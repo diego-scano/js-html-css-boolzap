@@ -47,7 +47,7 @@
             <img :src="contacts[activeChat].avatar" alt="">
             <div id="top-chat-menu-text">
               <span>{{contacts[activeChat].name}}</span><br>
-              <span>Ultimo accesso oggi alle</span>
+              <span>Ultimo accesso: {{lastDate(activeChat)}}</span>
             </div>
             <div class="user-menu-icons">
               <i class="fa fa-search" aria-hidden="true"></i>

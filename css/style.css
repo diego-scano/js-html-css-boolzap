@@ -26,8 +26,8 @@
   min-height: 80px;
   width: 35%;
   border-right: 1px solid blue;
-  overflow-y: auto;
   background-color: white;
+  overflow-y: auto;
 }
 
 .main {
@@ -120,6 +120,7 @@ i {
 #single-contact-container {
   border-bottom: 1px solid lightgrey;
   cursor: pointer;
+  overflow-y: auto;
 }
 
 #single-contact-container:hover {
@@ -157,10 +158,11 @@ i {
 }
 
 .cloud-message {
-  padding: 30px;
+  padding: 20px 30px 30px 10px;
   border-radius: 10px;
   margin-bottom: 10px;
   position: relative;
+  min-width: 120px;
 }
 
 .time {

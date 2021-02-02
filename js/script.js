@@ -95,11 +95,25 @@ new Vue({
   },
     newText: function () {
       let pushText = this.contacts[this.activeChat].messages;
-      pushText.push({text: this.inputText, status: 'sent'});
+      let date = new Date();
+      let day = date.getDate() + '/';
+      let month = date.getMonth() + 1 + '/';
+      let year = date.getFullYear() + ' ';
+      let hour = date.getHours() + ':';
+      let minutes = date.getMinutes() + ':';
+      let seconds = date.getSeconds();
+      let completeDate = day+month+year+hour+minutes+seconds;
+      pushText.push({date: completeDate, text: this.inputText, status: 'sent'});
       this.inputText = '';
       setTimeout(function() {
-        pushText.push({text: 'Ok', status: 'received'})
+        pushText.push({date: completeDate, text: 'Ok', status: 'received'})
       }, 1000)
+    },
+    lastDate: function(index) {
+      let messages = this.contacts[index].messages;
+      let lastIndex = this.contacts[index].messages.length - 1;
+      let lastDate = messages[lastIndex].date;
+      return lastDate;
     }
   }
 })
