@@ -56,13 +56,15 @@
             </div>
           </div>
           <div id="chat-box">
-            <div v-for="item in contacts[activeChat].messages"
-            class="cloud-message"
-            :class="{
-              'me': (item.status === 'sent'),
-              'you': (item.status === 'received')
-            }">{{item.text}}
-            <div class="time">{{item.date}}</div>
+            <div id="sub-chat-box">
+              <div v-for="item in contacts[activeChat].messages"
+                class="cloud-message"
+                :class="{
+                  'me': (item.status === 'sent'),
+                  'you': (item.status === 'received')
+                }">{{item.text}}
+                <div class="time">{{item.date}}</div>
+              </div>
             </div>
           </div>
         </div>

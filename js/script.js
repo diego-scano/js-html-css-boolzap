@@ -96,18 +96,30 @@ new Vue({
     newText: function () {
       let pushText = this.contacts[this.activeChat].messages;
       let date = new Date();
-      let day = date.getDate() + '/';
-      let month = date.getMonth() + 1 + '/';
+      let day;
+      if(date.getDate() < 10) {
+        day = '0' + date.getDate() + '/';
+      } else {
+        day = date.getDate() + '/';
+      }
+      let month;
+      if(date.getMonth() < 10) {
+        month = '0' + (date.getMonth() + 1) + '/';
+      } else {
+        month = date.getMonth() + 1 + '/';
+      }
       let year = date.getFullYear() + ' ';
       let hour = date.getHours() + ':';
       let minutes = date.getMinutes() + ':';
       let seconds = date.getSeconds();
       let completeDate = day+month+year+hour+minutes+seconds;
-      pushText.push({date: completeDate, text: this.inputText, status: 'sent'});
-      this.inputText = '';
-      setTimeout(function() {
-        pushText.push({date: completeDate, text: 'Ok', status: 'received'})
-      }, 1000)
+      if(this.inputText !== '') {
+        pushText.push({date: completeDate, text: this.inputText, status: 'sent'});
+        this.inputText = '';
+        setTimeout(function() {
+          pushText.push({date: completeDate, text: 'Ok', status: 'received'})
+        }, 1000)
+      }
     },
     lastDate: function(index) {
       let messages = this.contacts[index].messages;
