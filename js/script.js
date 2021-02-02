@@ -109,9 +109,25 @@ new Vue({
         month = date.getMonth() + 1 + '/';
       }
       let year = date.getFullYear() + ' ';
-      let hour = date.getHours() + ':';
-      let minutes = date.getMinutes() + ':';
-      let seconds = date.getSeconds();
+
+      let hour;
+      if(date.getHours() < 10) {
+        hour = '0' + date.getHours() + ':';
+      } else {
+        hour = date.getHours() + ':';
+      }
+      let minutes;
+      if(date.getMinutes() < 10) {
+        minutes = '0' + date.getMinutes() + ':';
+      } else {
+        minutes = date.getMinutes() + ':';
+      }
+      let seconds;
+      if(date.getSeconds() < 10) {
+        seconds = '0' + date.getSeconds();
+      } else {
+        seconds = date.getSeconds();
+      }
       let completeDate = day+month+year+hour+minutes+seconds;
       if(this.inputText !== '') {
         pushText.push({date: completeDate, text: this.inputText, status: 'sent'});
