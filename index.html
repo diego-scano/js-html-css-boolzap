@@ -35,7 +35,7 @@
                 <i class="fa fa-search" aria-hidden="true"></i>
                 <input placeholder="Cerca o inizia una nuova chat">
               </div>
-              <div id="single-contact-container" v-for="item in contacts">
+              <div id="single-contact-container" v-for="(item, index) in contacts" @click="changeChat(index)">
                 <img :src="item.avatar" alt="">{{item.name}}
               </div>
             </div>
@@ -44,9 +44,9 @@
 
         <div class="main fl">
           <div id="top-chat-menu">
-            <img :src="contacts[0].avatar" alt="">
+            <img :src="contacts[activeChat].avatar" alt="">
             <div id="top-chat-menu-text">
-              <span>{{contacts[0].name}}</span><br>
+              <span>{{contacts[activeChat].name}}</span><br>
               <span>Ultimo accesso oggi alle</span>
             </div>
             <div class="user-menu-icons">
@@ -56,18 +56,20 @@
             </div>
           </div>
           <div id="chat-box">
-            <div class="cloud-message me">
-              Esempio 1 "io" <div class="time">00:00</div>
-            </div>
-            <div class="cloud-message you">
-              Esempio 2 "tu" <div class="time">00:01</div>
+            <div v-for="item in contacts[activeChat].messages"
+            class="cloud-message"
+            :class="{
+              'me': (item.status === 'sent'),
+              'you': (item.status === 'received')
+            }">{{item.text}}
+            <div class="time">{{item.date}}</div>
             </div>
           </div>
         </div>
 
         <div class="bottom fl">
           <i class="fa fa-smile-o" aria-hidden="true"></i>
-          <input placeholder="Scrivi un messaggio">
+          <input @keyup.enter="newText" v-model="inputText" placeholder="Scrivi un messaggio">
           <i class="fa fa-microphone" aria-hidden="true"></i>
         </div>
       </div>

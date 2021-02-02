@@ -150,8 +150,8 @@ i {
 
 #chat-box {
   display: flex;
-  flex-direction: column-reverse;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
   height: calc(100% - 80px);
   overflow-y: auto;
 }

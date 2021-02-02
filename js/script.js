@@ -85,7 +85,24 @@ new Vue({
   			}
   		],
   	},
-  ]
-
+  ],
+  activeChat: 0,
+  inputText: '',
+  newArray: []
+},
+  methods: {
+    changeChat: function(index) {
+      this.activeChat = index;
+  },
+    newText: function () {
+      let pushText = this.contacts[this.activeChat].messages;
+      pushText.push({text: this.inputText, status: 'sent'});
+      this.inputText = '';
+      setTimeout(function() {
+        pushText.push({text: 'Ok', status: 'received'})
+      }, 1000)
+    }
   }
 })
+
+Vue.config.devtools = true;
