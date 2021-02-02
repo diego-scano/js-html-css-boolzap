@@ -87,8 +87,7 @@ new Vue({
   	},
   ],
   activeChat: 0,
-  inputText: '',
-  newArray: []
+  inputText: ''
 },
   methods: {
     changeChat: function(index) {
