@@ -87,7 +87,8 @@ new Vue({
   	},
   ],
   activeChat: 0,
-  inputText: ''
+  inputText: '',
+  searchInput: ''
 },
   methods: {
     changeChat: function(index) {
@@ -95,45 +96,11 @@ new Vue({
   },
     newText: function () {
       let pushText = this.contacts[this.activeChat].messages;
-      let date = new Date();
-      let day;
-      if(date.getDate() < 10) {
-        day = '0' + date.getDate() + '/';
-      } else {
-        day = date.getDate() + '/';
-      }
-      let month;
-      if(date.getMonth() < 10) {
-        month = '0' + (date.getMonth() + 1) + '/';
-      } else {
-        month = date.getMonth() + 1 + '/';
-      }
-      let year = date.getFullYear() + ' ';
-
-      let hour;
-      if(date.getHours() < 10) {
-        hour = '0' + date.getHours() + ':';
-      } else {
-        hour = date.getHours() + ':';
-      }
-      let minutes;
-      if(date.getMinutes() < 10) {
-        minutes = '0' + date.getMinutes() + ':';
-      } else {
-        minutes = date.getMinutes() + ':';
-      }
-      let seconds;
-      if(date.getSeconds() < 10) {
-        seconds = '0' + date.getSeconds();
-      } else {
-        seconds = date.getSeconds();
-      }
-      let completeDate = day+month+year+hour+minutes+seconds;
       if(this.inputText !== '') {
-        pushText.push({date: completeDate, text: this.inputText, status: 'sent'});
+        pushText.push({date: dayjs().format('DD/MM/YYYY HH:mm:ss'), text: this.inputText, status: 'sent'});
         this.inputText = '';
         setTimeout(function() {
-          pushText.push({date: completeDate, text: 'Ok', status: 'received'})
+          pushText.push({date: dayjs().format('DD/MM/YYYY HH:mm:ss'), text: 'Ok', status: 'received'})
         }, 1000)
       }
     },
@@ -142,7 +109,7 @@ new Vue({
       let lastIndex = this.contacts[index].messages.length - 1;
       let lastDate = messages[lastIndex].date;
       return lastDate;
-    }
+    },
   }
 })
 
