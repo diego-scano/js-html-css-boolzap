@@ -34,10 +34,9 @@
             <div id="contacts-box">
               <div id="input">
                 <i class="fa fa-search" aria-hidden="true"></i>
-                <input v-model="searchInput" placeholder="Cerca o inizia una nuova chat">
+                <input @keyup="filter" v-model="searchInput" placeholder="Cerca o inizia una nuova chat">
               </div>
-              <div id="single-contact-container" v-for="(item, index) in contacts"
-              v-if="searchInput === ''" v-if="item.name.startsWith(searchInput)"
+              <div id="single-contact-container" v-for="(item, index) in contacts" v-if="item.visible"
               @click="changeChat(index)">
                 <img :src="item.avatar" alt="">{{item.name}}
               </div>

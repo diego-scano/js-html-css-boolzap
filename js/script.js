@@ -110,6 +110,15 @@ new Vue({
       let lastDate = messages[lastIndex].date;
       return lastDate;
     },
+    filter: function() {
+      this.contacts.forEach((element) => {
+        if(element.name.toLowerCase().startsWith(this.searchInput.toLowerCase())) {
+          element.visible = true;
+        } else {
+          element.visible = false;
+        }
+      });
+    }
   }
 })
 
