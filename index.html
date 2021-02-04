@@ -69,7 +69,7 @@
                 <i class="fa fa-angle-down" aria-hidden="true" @click="showMenu()"></i>
                 <div class="menu" :class="{ 'active' : show === true}">
                   <div>Message info</div>
-                  <div>Delete message</div>
+                  <div @click="delete(index)">Delete message</div>
                 </div>
               </div>
             </div>

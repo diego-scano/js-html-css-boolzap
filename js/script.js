@@ -122,6 +122,9 @@ new Vue({
     },
     showMenu: function() {
       this.show = true;
+    },
+    delete: function(index) {
+      this.contacts[index].messages.splice(index, 1);
     }
   }
 })
