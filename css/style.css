@@ -192,6 +192,11 @@ i {
   margin-left: 30px;
 }
 
+.fa-angle-down {
+  position: absolute;
+  right: 10px;
+}
+
 .bottom {
   background-color: white;
   min-height: 80px;
@@ -206,4 +211,28 @@ i {
 .bottom input {
   padding: 10px;
   width: 90%;
+}
+
+.menu {
+  background-color: white;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  min-width: 120px;
+  z-index: 1;
+  font-size: 0.8em;
+  display: none;
+}
+
+.menu div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.menu div:hover {
+  background-color: lightgrey;
+}
+
+.active {
+  display: block;
 }

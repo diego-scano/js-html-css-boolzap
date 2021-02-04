@@ -88,7 +88,8 @@ new Vue({
   ],
   activeChat: 0,
   inputText: '',
-  searchInput: ''
+  searchInput: '',
+  show: false
 },
   methods: {
     changeChat: function(index) {
@@ -118,6 +119,9 @@ new Vue({
           element.visible = false;
         }
       });
+    },
+    showMenu: function() {
+      this.show = true;
     }
   }
 })
